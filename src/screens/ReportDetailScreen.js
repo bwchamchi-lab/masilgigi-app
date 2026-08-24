@@ -6,11 +6,12 @@ import ScreenHeader from '../components/ScreenHeader';
 import Button from '../components/Button';
 import { colors, radius, spacing, shadow } from '../theme/theme';
 
-const speedMeta = {
-  fast: { label: '빠른', color: colors.fast },
-  normal: { label: '보통', color: colors.normal },
-  slow: { label: '느린', color: colors.slow },
-};
+// 리포트 제목: "0000년 00월 00일 00:00 마실 리포트" 형식
+function formatReportTitle(date, time) {
+  if (!date) return '마실 리포트';
+  const [y, m, d] = date.split('-');
+  return `${y}년 ${m}월 ${d}일${time ? ` ${time}` : ''} 마실 리포트`;
+}
 
 function Row({ icon, label, value }) {
   return (
@@ -26,9 +27,7 @@ function Row({ icon, label, value }) {
 
 export default function ReportDetailScreen({ route }) {
   const { report } = route.params;
-  const meta = speedMeta[report.speed] || speedMeta.normal;
-  const title =
-    report.duration != null ? `${meta.label} 걸음으로 ${report.duration}분 마실` : report.location || '마실 리포트';
+  const title = formatReportTitle(report.date, report.time);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>

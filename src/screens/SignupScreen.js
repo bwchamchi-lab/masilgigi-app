@@ -65,7 +65,7 @@ export default function SignupScreen({ navigation }) {
           </Pressable>
 
           <View style={styles.logoWrap}>
-            <Logo variant="mark" size={56} />
+            <Logo variant="markGreen" size={56} />
           </View>
           <Text style={styles.title}>회원가입</Text>
 

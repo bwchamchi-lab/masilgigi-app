@@ -36,6 +36,8 @@ export const gradients = {
   brand: [colors.tealDark, colors.tealLight],
   // 스플래시/시작 화면용 - 로고 원본 디자인에 맞춘 차분한 세이지 그린 그라데이션
   splash: ['#4A6E66', '#5D7A79'],
+  // 새 스플래시 로고(검정 워드마크 타일)용 - 밝은 배경이라야 대비가 살아서 흰색 대신 연한 톤 사용
+  splashLight: [colors.white, colors.bg],
 };
 
 export const spacing = {

@@ -9,6 +9,13 @@ const speedMeta = {
   slow: { label: '느린 걸음', color: colors.slow, icon: 'hourglass-outline' },
 };
 
+// 리포트 제목: "0000년 00월 00일 00:00 마실 리포트" 형식
+function formatReportTitle(date, time) {
+  if (!date) return '마실 리포트';
+  const [y, m, d] = date.split('-');
+  return `${y}년 ${m}월 ${d}일${time ? ` ${time}` : ''} 마실 리포트`;
+}
+
 export default function WalkCard({ item, onPress, onDownload }) {
   const meta = speedMeta[item.speed] || speedMeta.normal;
   return (
@@ -21,7 +28,7 @@ export default function WalkCard({ item, onPress, onDownload }) {
       </View>
       <View style={{ flex: 1 }}>
         <Text style={styles.title} numberOfLines={1}>
-          {item.duration != null ? `${meta.label}으로 ${item.duration}분 마실` : `${item.location || '마실'} 리포트`}
+          {formatReportTitle(item.date, item.time)}
         </Text>
         <Text style={styles.sub} numberOfLines={1}>{item.location}</Text>
         <Text style={styles.date}>{item.date}{item.time ? ` ${item.time}` : ''}</Text>

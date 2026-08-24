@@ -31,6 +31,10 @@
       body,
       #root {
         height: 100%;
+        /* --app-height는 아래 스크립트가 window.innerHeight(실제 보이는 화면 높이)로 채웁니다.
+           iOS PWA 독립 실행 모드에서 100%/100vh만으로는 주소창 유무에 따라 계산이 살짝 어긋나
+           화면 맨 아래에 배경색 띠가 남는 경우가 있어, JS로 정확한 값을 강제로 맞춰줍니다. */
+        height: var(--app-height, 100%);
         width: 100%;
       }
       body {
@@ -47,8 +51,19 @@
         flex: 1;
         display: flex;
         min-height: 100%;
+        min-height: var(--app-height, 100%);
       }
     </style>
+    <script>
+      (function () {
+        function setAppHeight() {
+          document.documentElement.style.setProperty('--app-height', window.innerHeight + 'px');
+        }
+        setAppHeight();
+        window.addEventListener('resize', setAppHeight);
+        window.addEventListener('orientationchange', setAppHeight);
+      })();
+    </script>
   </head>
   <body>
     <!-- Metro가 빌드 시 이 아래에 번들 <script> 태그를 자동으로 주입합니다 -->
