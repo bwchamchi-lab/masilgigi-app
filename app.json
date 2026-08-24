@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "마실지기",
+    "slug": "masilgigi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#0F4D45"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.masilgigi.app"
+    },
+    "android": {
+      "package": "com.masilgigi.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F4D45"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "name": "마실지기",
+      "shortName": "마실지기",
+      "themeColor": "#0B3D38",
+      "backgroundColor": "#0B3D38",
+      "favicon": "./public/favicon.ico"
+    },
+    "experiments": {
+      "baseUrl": "/masilgigi-app"
+    }
+  }
+}

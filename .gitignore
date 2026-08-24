@@ -1,0 +1,16 @@
+node_modules/
+.env
+dist/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# 웹 푸시 테스트용 구독 정보 (개인 기기 식별 정보라 커밋하지 않습니다)
+scripts/subscription.json
