@@ -1,0 +1,14 @@
+{
+  "short_name": "마실지기",
+  "name": "마실지기 - 안전한 걸음의 시작",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0B3D38",
+  "background_color": "#0B3D38",
+  "icons": [
+    { "src": "favicon.ico", "sizes": "16x16 32x32 48x48 64x64", "type": "image/x-icon" },
+    { "src": "icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
