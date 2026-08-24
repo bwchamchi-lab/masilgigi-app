@@ -31,17 +31,22 @@
       body,
       #root {
         height: 100%;
+        width: 100%;
       }
       body {
         margin: 0;
         background-color: #0b3d38;
         overscroll-behavior: none;
       }
-      /* iOS 상단 노치 영역까지 배경색이 이어지도록 */
-      @supports (padding: max(0px)) {
-        body {
-          padding-top: env(safe-area-inset-top);
-        }
+      /* React Native Web이 #root 안에 넣는 실제 앱 래퍼가 화면 전체 높이를 꽉 채우도록 강제.
+         이게 없으면 내용이 화면 위쪽에 쪼그라들고, 나머지 영역은 배경색만 있는 빈 공간으로 남는 문제가 생깁니다. */
+      #root {
+        display: flex;
+      }
+      #root > div {
+        flex: 1;
+        display: flex;
+        min-height: 100%;
       }
     </style>
   </head>
